@@ -1,13 +1,185 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #e74c3c;
+  --light-color: #f9f9f9;
+  --light-alt-color: #cdcdcd;
+  --dark-color: #101a23;
+  --dark-alt-color: #12263a;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--dark-alt-color);
+  color: var(--light-color);
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+h3 {
+  color: var(--light-alt-color);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.jot {
+  position: relative;
+  background-color: var(--dark-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.jot:hover {
+  opacity: 0.8;
+}
+
+.jot .checkbox {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  transition: 0.4s;
+}
+
+.jot.is-complete .checkbox {
+  background-color: var(--dark-alt-color);
+}
+
+.jot .text {
+  font-size: 1rem;
+  padding: 0rem 1rem 0rem 1rem;
+}
+
+.jot.jot.is-complete .text {
+  text-decoration: line-through;
+}
+
+.jot .deleteJot {
+  position: absolute;
+  right: 2rem;
+
+  color: var(--light-color);
+  background-color: #686868;
+
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jot .deleteJot:hover {
+  color: #ffffff;
+  background-color: #ff0000;
+  transition: 0.5s;
+}
+
+.addPopup {
+  position: fixed;
+  top: 9rem;
+  right: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  background-color: var(--primary-color);
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #243a50f4;
+  padding: 6rem;
+  border-radius: 1rem;
+  box-shadow: 0px 3px 24px var(--dark-color);
+}
+
+.closePopup {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  cursor: pointer;
+}
+
+.popupTitle {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  font-size: 2rem;
+}
+
+.addJotInput {
+  position: relative;
+  bottom: 1rem;
+  right: 5rem;
+  width: 370px;
+  height: 200px;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  resize: none;
+  overflow: auto;
+}
+
+.addJotInput::-webkit-scrollbar {
+  width: 10px;
+  background-color: #2f2f2f;
+}
+
+.addJotInput::-webkit-scrollbar-thumb {
+  background-color: #cdcdcd;
+  border-radius: 5px;
+}
+
+.jotCreateButton {
+  position: absolute;
+  bottom: 2rem;
+  right: 1rem;
+  cursor: pointer;
+  border-radius: .5rem;
+  background-color: #ffffff;
+  color: var(--dark-color);
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 1rem;
 }
