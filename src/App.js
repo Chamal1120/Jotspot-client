@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+// Main Endpoint of the backend-api
 const API_BASE = "https://jostspot-api-production.up.railway.app";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     GetJots();
   }, []);
 
+  // Get all jots
   const GetJots = () => {
     axios
       .get(`${API_BASE}/jots`)
@@ -24,6 +26,7 @@ function App() {
       });
   };
 
+  // Update a jot as completed
   const completeJot = async (id) => {
     try {
       const response = await axios.put(`${API_BASE}/jots/complete/${id}`);
@@ -41,6 +44,7 @@ function App() {
     }
   };
 
+  // Delete a jot using mongoDB id
   const deleteJot = async (id) => {
     try {
       await axios.delete(`${API_BASE}/jots/delete/${id}`);
@@ -50,6 +54,7 @@ function App() {
     }
   };
 
+  // Create a new jot
   const addJot = async () => {
     try {
       const response = await axios.post(`${API_BASE}/jots/new`, {
@@ -86,6 +91,7 @@ function App() {
       <h1>Welcome User!</h1>
       <h3>Your Jots</h3>
       <div className="jots">
+        {/* Render the fetched all jots to the UI */}
         {jots.map((jot) => (
           <div
             className={"jot " + (jot.complete ? "is-complete" : "")}

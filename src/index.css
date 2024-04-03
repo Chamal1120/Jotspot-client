@@ -1,3 +1,4 @@
+/* Define color pallete using CSS variables */
 :root {
   --primary-color: #3498db;
   --secondary-color: #e74c3c;
@@ -7,6 +8,7 @@
   --dark-alt-color: #12263a;
 }
 
+/* Reset the margins and paddings for all elements */
 * {
   margin: 0;
   padding: 0;
@@ -99,6 +101,7 @@ h3 {
   transition: 0.5s;
 }
 
+/* CSS to control the modal */
 .addPopup {
   position: fixed;
   top: 9rem;
